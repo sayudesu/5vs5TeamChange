@@ -220,6 +220,7 @@ bool retry = false;
 int frameCount = 0;
 int count = 0;
 
+
 void team();//チーム分け
 void same();//重複チェック
 
@@ -289,6 +290,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	color[0] = 0xffffff;
 
 	int rand1 = 0, rand2 = 0, rand3 = 0, rand4 = 0, rand5 = 0;
+
+	bool isCheck1 = false;
+	bool isCheck2 = false;
+	bool isCheck3 = false;
+	bool isCheck4 = false;
+	bool isCheck5 = false;
+	bool isCheck6 = false;
+	bool isCheck7 = false;
+	bool isCheck8 = false;
+	bool isCheck9 = false;
+	bool isCheck10 = false;
 
 	NameCollision* Name = new NameCollision;
 
@@ -562,13 +574,30 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		DrawBox(Team::kBNameBox5Left + rand1, Team::kBNameBox5Top + rand1, Team::kBNameBox5Right + rand1, Team::kBNameBox5Bottom + rand1, Color::Blue, false);
 
 
-		if (Name->SetBalanceBoxCheck() == 1)
+		if (Name->SetBalanceBoxCheck() >= 0)
 		{
-			DrawBox(checkMark::k1Left, checkMark::k1Top, checkMark::k1Right, checkMark::k1Bottom, color[0], true);
+			printfDx("%d\n", Name->SetBalanceBoxCheck());
 		}
 
+		if(Name->SetBalanceBoxCheck() == 1)
+		{
+			isCheck1 = true;
+		}
+
+		if (Name->SetBalanceBoxCheck() == 2)
+		{
+			isCheck2 = true;
+		}
 
 		//チェックマーク
+		if (isCheck1)
+		{
+		}
+		if (isCheck2)
+		{
+		}
+
+		DrawBox(checkMark::k1Left, checkMark::k1Top, checkMark::k1Right, checkMark::k1Bottom, color[0], true);
 		DrawBox(checkMark::k2Left, checkMark::k2Top, checkMark::k2Right, checkMark::k2Bottom, color[0], true);
 		DrawBox(checkMark::k3Left, checkMark::k3Top, checkMark::k3Right, checkMark::k3Bottom, color[0], true);
 		DrawBox(checkMark::k4Left, checkMark::k4Top, checkMark::k4Right, checkMark::k4Bottom, color[0], true);
@@ -619,6 +648,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	return 0;				// ソフトの終了 
 }
+
+
 //チーム割り当て
 void team()
 {

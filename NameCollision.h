@@ -144,6 +144,8 @@ private:
 	int m_mouseLeft,m_mouseTop;
 	int m_mouseRight, m_mouseBottom;
 
+	int m_checkHit[10];
+
 	//触れているネームボックスの色を変更
 	int m_colorChange;
 
